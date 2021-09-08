@@ -28,6 +28,18 @@ else
         CMD="$CMD -log stdout"
     fi
 
+    if [[ -n "$AUTH_TOKEN" ]]; then
+        CMD="$CMD -authtoken $AUTH_TOKEN"
+    fi
+
+    if [[ -n "$SUBDOMAIN" ]]; then
+        CMD="$CMD -subdomain $SUBDOMAIN"
+    fi
+    
+    if [[ -n "$AUTH" ]]; then
+        CMD="$CMD -auth $AUTH"
+    fi
+
     if [[ -n "$DOMAIN" ]]; then
         CMD="$CMD $DOMAIN:$PORT"
     else
